@@ -4,9 +4,6 @@ servant_survey_df = pd.read_csv("data/Resultados Agosto summer - Respuestas de f
 
 #Copied from the create player datasets file. Probably should have written a function
 
-#The "[..-..]" part in Waver's name will cause trouble with regex later
-servant_survey_df = servant_survey_df.replace("Zhuge Liang \[El\-Melloi II\]", "Zhuge Liang", regex = True)
-
 splitted_df = {}
 
 splitted_df['$500- monthly']    = servant_survey_df[servant_survey_df['How much money have you used in-game?'] == 'More than 500 Monthly']

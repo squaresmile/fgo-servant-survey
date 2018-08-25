@@ -1,12 +1,10 @@
 import pandas as pd
+import re
 
 servant_survey_df = pd.read_csv("data/Resultados Agosto summer - Respuestas de formulario 1.csv", mangle_dupe_cols=True)
 
 #These records are Paid Gacha but record values in the columns for F2P
-servant_survey_df = servant_survey_df.drop([478, 1973, 2195])
-
-#The "[..-..]" part in Waver's name will cause trouble with regex later
-servant_survey_df = servant_survey_df.replace("Zhuge Liang \[El\-Melloi II\]", "Zhuge Liang", regex = True)
+servant_survey_df = servant_survey_df.drop([478, 1324, 1973, 2195])
 
 splitted_df = {}
 
@@ -23,7 +21,7 @@ PROPER_COLUMNS_NAME = ['Time', 'Money Spent', 'Sabers', 'Archers', 'Lancers', 'R
 #Eg: F2P Sabers in 'SSR Sabers'; Paid Gacha Sabers in 'SSR Sabers.1' and so on
 #Therefore, if NA columns are removed, only columns of the relevant player type remain
 for player_type, player_df in splitted_df.items():
-    splitted_df[player_type] = player_df.dropna(axis = 1, how = 'all').iloc[:,:11] #only caree about servants stats
+    splitted_df[player_type] = player_df.dropna(axis = 1, how = 'all').iloc[:,:11] #only care about servants stats
     splitted_df[player_type].columns = PROPER_COLUMNS_NAME
 
 servant_class_list = {}
@@ -34,13 +32,13 @@ for servant_class in PROPER_COLUMNS_NAME[2:]:
 
 #Get servant list for each class
 for servant_class, servant_list in servant_class_list.items():
-    servant_class_list[servant_class] = list({ssr.strip() for item in servant_list for ssr in item.split(',')})
+    servant_class_list[servant_class] = list({str(ssr).strip() for item in servant_list for ssr in item.split(',')})
 
 #Create servants' columms containing TRUE or FALSE
 for player_type, player_df in splitted_df.items():
     for servant_class in servant_class_list:
         for servant in servant_class_list[servant_class]:
-            splitted_df[player_type][servant] = player_df[servant_class].str.contains(servant, na = False)
+            splitted_df[player_type][servant] = player_df[servant_class].str.contains(re.escape(servant), na = False)
 
 merged_survey_df = pd.DataFrame()
 
