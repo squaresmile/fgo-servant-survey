@@ -6,4 +6,4 @@ production:
   - gem install dpl
   - dpl --provider=heroku --app=gitlab-ci-python-test-prod --api-key=$HEROKU_API_KEY
   only:
-  - tags
+  - master
