@@ -23,7 +23,7 @@ server = app.server
 app.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"})
 
 app.layout = html.Div(children=[
-    html.H1(children='Hello Dash'),
+    html.H1(children='FGO NA Summer Servant Survey'),
 
     html.Div(children='''
         Servant Class
