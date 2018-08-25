@@ -51,5 +51,5 @@ for player_type, player_df in splitted_df.items():
 
 merged_survey_df.to_csv("data/merged_df.csv", index_label='index')
 
-for player_type, player_df in splitted_df.items():
-    player_df.to_csv("data/{}.csv".format(player_type))
+# for player_type, player_df in splitted_df.items():
+#     player_df.to_csv("data/{}.csv".format(player_type))
