@@ -17,7 +17,7 @@ splitted_df['$100-300 monthly'] = servant_survey_df[servant_survey_df['How much 
 splitted_df['$300-500 monthly'] = servant_survey_df[servant_survey_df['How much money have you used in-game?'] == 'More than 300USD but less than 500 Montlhy']
 splitted_df['$500- monthly']    = servant_survey_df[servant_survey_df['How much money have you used in-game?'] == 'More than 500 Monthly']
 
-PROPER_COLUMNS_NAME = ['Time', 'Money Spent', 'sabers', 'archers', 'lancers', 'riders', 'casters', 'assassins', 'berserkers', 'rulers', 'avengers']
+PROPER_COLUMNS_NAME = ['Time', 'Money Spent', 'Sabers', 'Archers', 'Lancers', 'Riders', 'Casters', 'Assassins', 'Berserkers', 'Rulers', 'Avengers']
 
 #Each player type servant data are recorded in different columns for different player type.
 #Eg: F2P Sabers in 'SSR Sabers'; Paid Gacha Sabers in 'SSR Sabers.1' and so on
