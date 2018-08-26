@@ -56,8 +56,11 @@ app.layout = html.Div(children=[
         value=player_types
     ),
 
-    dcc.Graph(id='fgo_servant_data',)
-])
+    dcc.Graph(id='fgo_servant_data')
+], style={
+    'max-width': '1000px',
+    'margin': 'auto'
+})
 
 @app.callback(
     dash.dependencies.Output('fgo_servant_data', 'figure'),
