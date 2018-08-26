@@ -75,7 +75,8 @@ def update_graph(chosen_class, chosen_availability, chosen_type):
             'data': [
                 go.Pie(
 					labels = list(summary.index),
-					values = list(summary)
+					values = list(summary),
+                    direction = "clockwise"
                 )
             ],
         }
