@@ -1,5 +1,16 @@
+image: ubuntu
+
+before_script:
+  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client git -y )'
+  - eval $(ssh-agent -s)
+  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - ssh-keyscan $SSH_SERVER >> ~/.ssh/known_hosts
+  - chmod 644 ~/.ssh/known_hosts
+
 production:
-  type: deploy
+  stage: deploy
   script:
   - apt-get update -qy
   - apt-get install -y ruby-dev
@@ -7,3 +18,14 @@ production:
   - dpl --provider=heroku --app=fgo-servant-survey --api-key=$HEROKU_API_KEY
   only:
   - master
+ 
+production-myserver:
+  stage: deploy
+  script:
+  - ssh $SSH_USER@$SSH_SERVER
+  - cd fgo-servant-survey
+  - git pull origin master
+  - touch $WSGI_INI
+  only:
+  - master
+ 
