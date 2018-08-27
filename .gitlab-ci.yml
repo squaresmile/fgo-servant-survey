@@ -22,7 +22,7 @@ production:
 production-myserver:
   stage: deploy
   script:
-  - ssh $SSH_USER@$SSH_SERVER "cd fgo-servant-survey; and git pull; and touch $WSGI_INI"
+  - ssh -t $SSH_USER@$SSH_SERVER "cd fgo-servant-survey; and git pull; and touch $WSGI_INI"
   only:
   - master
  
