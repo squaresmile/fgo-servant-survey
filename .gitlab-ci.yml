@@ -1,6 +1,4 @@
-image: ubuntu
-
-production:
+production-heroku:
   stage: deploy
   script:
   - apt-get update -qy
@@ -11,6 +9,7 @@ production:
   - master
  
 production-myserver:
+  image: ubuntu
   stage: deploy
   script:
   - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client git -y )'
