@@ -34,6 +34,7 @@ def main():
     #Get servant list for each class
     for servant_class, servant_list in servant_class_list.items():
         servant_class_list[servant_class] = list({str(ssr).strip() for item in servant_list for ssr in item.split(',')})
+        servant_class_list[servant_class].sort()
 
     #Create servants' columms containing TRUE or FALSE
     for player_type, player_df in splitted_df.items():
@@ -54,7 +55,7 @@ def main():
     # for player_type, player_df in splitted_df.items():
     #     player_df.to_csv("data/{}.csv".format(player_type))
 
-    servant_class_list['Avenger'].remove('Extra Option: Angra Mainyu')
+    servant_class_list['Avengers'].remove('Extra Option: Angra Mainyu')
 
     servant_class_table = [(servant, servant_class) for servant_class in servant_class_list for servant in servant_class_list[servant_class]]
     servant_df = pd.DataFrame(servant_class_table, columns=['Servant', 'Class'])
