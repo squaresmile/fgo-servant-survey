@@ -23,9 +23,7 @@ server = app.server
 app.layout = html.Div(children=[
     html.H1(children='FGO NA Summer Servant Survey'),
 
-    html.Div(children='''
-        Servant Class
-    '''),
+    html.Div(children='Servant Class'),
 
     dcc.Checklist(
         id='class_checklist',
@@ -34,9 +32,7 @@ app.layout = html.Div(children=[
         values=servant_classes
     ),
 
-    html.Div(children='''
-        Servant Availability
-    '''),
+    html.Div(children='Servant Availability'),
 
     dcc.Checklist(
         id='availability_checklist',
@@ -45,9 +41,7 @@ app.layout = html.Div(children=[
         values=servant_availability
     ),
 
-    html.Div(children='''
-        Spending Amount
-    '''),
+    html.Div(children='Spending Amount'),
 
     dcc.Checklist(
         id='type_checklist',
@@ -57,7 +51,7 @@ app.layout = html.Div(children=[
     ),
 
     dcc.Graph(id='fgo_servant_data')
-], className="row"
+], className="container"
 )
 
 @app.callback(
