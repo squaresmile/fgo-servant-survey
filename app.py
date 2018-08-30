@@ -27,46 +27,44 @@ app.layout = html.Div(children=[
         Servant Class
     '''),
 
-    dcc.Dropdown(
+    dcc.Checklist(
         id='class_checklist',
         options=dash_classes,
-        multi=True,
-        value=servant_classes
+        labelStyle={'display': 'inline-block'},
+        values=servant_classes
     ),
 
     html.Div(children='''
         Servant Availability
     '''),
 
-    dcc.Dropdown(
+    dcc.Checklist(
         id='availability_checklist',
         options=dash_availability,
-        multi=True,
-        value=servant_availability
+        labelStyle={'display': 'inline-block'},
+        values=servant_availability
     ),
 
     html.Div(children='''
         Spending Amount
     '''),
 
-    dcc.Dropdown(
+    dcc.Checklist(
         id='type_checklist',
         options=dash_types,
-        multi=True,
-        value=player_types
+        labelStyle={'display': 'inline-block'},
+        values=player_types
     ),
 
     dcc.Graph(id='fgo_servant_data')
-], style={
-    'max-width': '1000px',
-    'margin': 'auto'
-})
+], className="row"
+)
 
 @app.callback(
     dash.dependencies.Output('fgo_servant_data', 'figure'),
-    [dash.dependencies.Input('class_checklist', 'value'),
-     dash.dependencies.Input('availability_checklist', 'value'),
-     dash.dependencies.Input('type_checklist', 'value')])
+    [dash.dependencies.Input('class_checklist', 'values'),
+     dash.dependencies.Input('availability_checklist', 'values'),
+     dash.dependencies.Input('type_checklist', 'values')])
 def update_graph(chosen_class, chosen_availability, chosen_type):
     chosen_servants = list(servant_df[servant_df['Class'].isin(chosen_class) & servant_df['Availability'].isin(chosen_availability)]['Servant'])
     summary = player_df[player_df['Money Spent'].isin(chosen_type)][chosen_servants].sum().replace(False, 0)
@@ -78,7 +76,7 @@ def update_graph(chosen_class, chosen_availability, chosen_type):
 					values = list(summary),
                     direction = "clockwise"
                 )
-            ],
+            ]
         }
 
 if __name__ == '__main__':
