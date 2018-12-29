@@ -12,6 +12,7 @@ servant_df = pd.read_csv("data/servant - manual.csv")
 servant_classes = list(servant_df['Class'].unique())
 servant_availability = list(servant_df['Availability'].unique())
 player_types = list(player_df['Money Spent'].unique())
+player_types.sort()
 
 dash_classes = [{'label': servant_class, 'value': servant_class} for servant_class in servant_classes]
 dash_availability = [{'label': availability, 'value': availability} for availability in servant_availability]

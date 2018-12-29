@@ -47,6 +47,14 @@ def main():
 
     merged_survey_df = merged_survey_df.drop(columns = PROPER_COLUMNS_NAME[2:11])
 
+    PROPER_PLAYER_NAME = {
+        'More than 1USD but less than 101 Monthly': '$1-100 Monthly',
+        '101USD and onwards, but less than 301 Monthly': '$100-300 Monthly',
+        '501 USD and onwards': '$500- Monthly',
+        '301USD and onwards but less than 501 Montlhy': '$300-500 Monthly'
+    }
+    merged_survey_df = merged_survey_df.replace(PROPER_PLAYER_NAME)
+
     merged_survey_df.to_csv("data/merged_df.csv", index_label='index')
 
     # for player_type, player_df in splitted_df.items():
