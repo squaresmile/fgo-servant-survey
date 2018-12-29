@@ -1,37 +1,38 @@
 Servant,Class
-Altera,Sabers
-Artoria Pendragon,Sabers
-Mordred,Sabers
-Nero Claudius [Bride],Sabers
-Okita Souji,Sabers
-Ryougi Shiki,Sabers
-Arjuna,Archers
-Artoria Pendragon [Archer],Archers
-Gilgamesh,Archers
-Nikola Tesla,Archers
-Orion,Archers
-Artoria Pendragon [Lancer],Lancers
-Brynhildr,Lancers
-Karna,Lancers
-Scathach,Lancers
-Tamamo no Mae [Lancer],Lancers
-Francis Drake,Riders
-Iskandar,Riders
-Ozymandias,Riders
-Queen Medb,Riders
-Leonardo Da Vinci,Casters
-Tamamo-no-mae,Casters
-Xuanzang,Casters
-Zhuge Liang [El-Melloi II],Casters
-Jack the Ripper,Assassins
-MHX,Assassins
-Shuten Douji,Assassins
-Cu Chulainn [Alter],Berserkers
-Florence Nightingale,Berserkers
-Minamoto no Raikō,Berserkers
-Sakata Kintoki,Berserkers
-Vlad III,Berserkers
-Amakusa Shirou,Rulers
-Jeanne D'arc,Rulers
-Edmond Dantes,Avengers
-Jeanne D'arc [Alter],Avengers
+Altera,Saber
+Artoria Pendragon,Saber
+Mordred,Saber
+Nero Claudius [Bride],Saber
+Okita Souji,Saber
+Ryougi Shiki,Saber
+Arjuna,Archer
+Artoria Pendragon [Archer],Archer
+Gilgamesh,Archer
+Nikola Tesla,Archer
+Orion,Archer
+Artoria Pendragon [Lancer],Lancer
+Brynhildr,Lancer
+Karna,Lancer
+Scathach,Lancer
+Tamamo no Mae [Lancer],Lancer
+Francis Drake,Rider
+Iskandar,Rider
+Ozymandias,Rider
+Queen Medb,Rider
+Illyasviel von Einzbern,Caster
+Leonardo Da Vinci,Caster
+Tamamo-no-mae,Caster
+Xuanzang,Caster
+Zhuge Liang [El-Melloi II],Caster
+Jack the Ripper,Assassin
+MHX,Assassin
+Shuten Douji,Assassin
+Cu Chulainn [Alter],Berserker
+Florence Nightingale,Berserker
+Minamoto no Raikō,Berserker
+Sakata Kintoki,Berserker
+Vlad III,Berserker
+Amakusa Shirou,Ruler
+Jeanne D'arc,Ruler
+Edmond Dantes,Avenger
+Jeanne D'arc [Alter],Avenger
