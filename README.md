@@ -6,6 +6,4 @@
 
 [![pipeline status](https://gitlab.com/squaresmile/fgo-servant-survey/badges/master/pipeline.svg)](https://gitlab.com/squaresmile/fgo-servant-survey/commits/master)
 
-[My server](https://fgo-servant-survey.square.ovh/)
-
 [Heroku server](https://fgo-servant-survey.herokuapp.com)
