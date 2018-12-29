@@ -1,38 +1,43 @@
 Servant,Class,Availability
-Mordred,Saber,Non-limited
 Altera,Saber,Non-limited
-Ryougi Shiki,Saber,Limited
-Okita Souji,Saber,Limited
-Nero Claudius [Bride],Saber,Limited
 Artoria Pendragon,Saber,Non-limited
-Gilgamesh,Archer,Limited
-Orion,Archer,Non-limited
-Artoria Pendragon [Archer],Archer,Limited
+Mordred,Saber,Non-limited
+Nero Claudius [Bride],Saber,Limited
+Okita Souji,Saber,Limited
+Ryougi Shiki,Saber,Limited
 Arjuna,Archer,Non-limited
-Nikola Tesla,Archer,Story Locked
-Tamamo no Mae [Lancer],Lancer,Limited
-Scathach,Lancer,Limited
+Artoria Pendragon [Archer],Archer,Limited
+Gilgamesh,Archer,Limited
+Ishtar,Archer,Limited
+Nikola Tesla,Archer,Non-limited
+Orion,Archer,Non-limited
 Artoria Pendragon [Lancer],Lancer,Story Locked
-Karna,Lancer,Non-limited
 Brynhildr,Lancer,Limited
-Ozymandias,Rider,Non-limited
-Iskandar,Rider,Limited
+Enkidu,Lancer,Non-limited
+Karna,Lancer,Non-limited
+Scathach,Lancer,Limited
+Tamamo no Mae [Lancer],Lancer,Limited
 Francis Drake,Rider,Non-limited
-Queen Medb,Rider,Story Locked
+Iskandar,Rider,Limited
+Ozymandias,Rider,Non-limited
+Queen Medb,Rider,Non-limited
+Quetzalcoatl,Rider,Story Locked
+Illyasviel von Einzbern,Caster,Limited
+Leonardo Da Vinci,Caster,Limited
+Merlin,Caster,Limited
+Tamamo-no-mae,Caster,Non-limited
 Xuanzang,Caster,Non-limited
 Zhuge Liang [El-Melloi II],Caster,Non-limited
-Illyasviel von Einzbern,Caster,Limited
-Tamamo-no-mae,Caster,Non-limited
-Leonardo Da Vinci,Caster,Limited
+Cleopatra,Assassin,Limited
 Jack the Ripper,Assassin,Non-limited
-Shuten Douji,Assassin,Limited
 MHX,Assassin,Limited
-Vlad III,Berserker,Non-limited
+Shuten Douji,Assassin,Limited
+Cu Chulainn [Alter],Berserker,Story Locked
 Florence Nightingale,Berserker,Non-limited
 Minamoto no Raikō,Berserker,Limited
 Sakata Kintoki,Berserker,Limited
-Cu Chulainn [Alter],Berserker,Story Locked
+Vlad III,Berserker,Non-limited
 Amakusa Shirou,Ruler,Limited
 Jeanne D'arc,Ruler,Non-limited
-Jeanne D'arc [Alter],Avenger,Limited
 Edmond Dantes,Avenger,Limited
+Jeanne D'arc [Alter],Avenger,Limited

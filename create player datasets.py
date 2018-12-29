@@ -2,14 +2,15 @@ import pandas as pd
 import re
 
 def main():
-    servant_survey_df = pd.read_csv("data/Google Sheets csv/SSR NA complete test October 2018 (respuestas) - Respuestas de formulario 1.csv", mangle_dupe_cols=True)
+    servant_survey_df = pd.read_csv("data/Google Sheets csv/SSR Actual 2018 Dec (respuestas).csv", mangle_dupe_cols=True)
 
     #These records are Paid Gacha or 100-300 but record values in the columns for F2P
-    servant_survey_df = servant_survey_df.drop([5])
+    servant_survey_df = servant_survey_df.drop([111, 1029, 2395])
 
     splitted_df = {}
 
-    for money_type in servant_survey_df['How much money have you used in-game?'].unique():
+    player_type_list = [p_type for p_type in servant_survey_df['How much money have you used in-game?'].unique() if not pd.isnull(p_type) and p_type != '']
+    for money_type in player_type_list:
         splitted_df[money_type] = servant_survey_df[servant_survey_df['How much money have you used in-game?'] == money_type]
 
     PROPER_COLUMNS_NAME = ['Time', 'Money Spent', 'Saber', 'Archer', 'Lancer', 'Rider', 'Caster', 'Assassin', 'Berserker', 'Ruler', 'Avenger']
@@ -18,7 +19,7 @@ def main():
     #Eg: F2P Sabers in 'SSR Sabers'; Paid Gacha Sabers in 'SSR Sabers.1' and so on
     #Therefore, if NA columns are removed, only columns of the relevant player type remain
     for player_type, player_df in splitted_df.items():
-        splitted_df[player_type] = player_df.dropna(axis = 1, how = 'all').iloc[:,:17]
+        splitted_df[player_type] = player_df.dropna(axis = 1, how = 'all').iloc[:,:11]
         splitted_df[player_type].columns = PROPER_COLUMNS_NAME
 
     servant_class_list = {}
