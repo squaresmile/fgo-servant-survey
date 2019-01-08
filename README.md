@@ -1,9 +1,7 @@
 [Dash](https://plot.ly/products/dash/) app for visualization of the Summer Fate/Grand Order NA Servants Survey
 
-[Reddit post](https://redd.it/985had) of the servant survey
+[Reddit post](https://redd.it/aamzp8) of the servant survey on 2018-12-29
 
-[Survey Google Sheet](https://docs.google.com/spreadsheets/d/12cilKlRzE0O5xLyUPpBB2sfLnwB86RcEuFUBxra7xxw/)
-
-[![pipeline status](https://gitlab.com/squaresmile/fgo-servant-survey/badges/master/pipeline.svg)](https://gitlab.com/squaresmile/fgo-servant-survey/commits/master)
+[Survey Google Sheet](https://docs.google.com/spreadsheets/d/17fuOabWDIW5m72YGEhuiikIXlpsM_pVtMfqkBmUr6xc/)
 
 [Heroku server](https://fgo-servant-survey.herokuapp.com)
