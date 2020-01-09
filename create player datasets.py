@@ -42,7 +42,22 @@ def main():
         "Ruler",
         "Avenger",
         "Alter Ego",
-        "Foreigner"
+        "Foreigner",
+        "Angra?",
+        "Length of account",
+        "Total number of SSR",
+        "Have saved for servant",
+        "Got servant after saving",
+        "NA pace?",
+        "State of NA?",
+        "Auto-Play or NP skip?",
+        "DW care?",
+        "More subtitles?",
+        "Faster Lostbelts?",
+        "Favorite Servant",
+        "Most hated servant",
+        "Gender",
+        "Reroll account?",
     ]
 
     # Each player type servant data are recorded in different columns for different player type.
@@ -55,7 +70,7 @@ def main():
     servant_class_list = {}
 
     # Use whale dataset to make sure we don't miss any servant
-    for servant_class in PROPER_COLUMNS_NAME[2:]:
+    for servant_class in PROPER_COLUMNS_NAME[2:13]:
         servant_class_list[servant_class] = list(
             splitted_df["High Spender (201-300~ USD per month)"][servant_class].dropna().unique()
         )
@@ -81,7 +96,7 @@ def main():
         splitted_df[player_type]["Money Spent"] = player_type
         merged_survey_df = merged_survey_df.append(splitted_df[player_type])
 
-    merged_survey_df = merged_survey_df.drop(columns=PROPER_COLUMNS_NAME[2:])
+    merged_survey_df = merged_survey_df.drop(columns=PROPER_COLUMNS_NAME[2:13])
 
     PROPER_PLAYER_NAME = {
         "Occasional Spender (1-50~ USD per month)": "$1-50 Monthly",
