@@ -1,15 +1,16 @@
-import pandas as pd
 import re
+import pandas as pd
 
 
 def main():
     servant_survey_df = pd.read_csv(
-        "data/Google Sheets csv/SSR Actual 2018 Dec (respuestas).csv",
+        "data/Google Sheets csv/SSR NA Actual FEB 2019 (respuestas) - Respuestas de formulario 1.csv",
         mangle_dupe_cols=True,
     )
 
     # These records are Paid Gacha or 100-300 but record values in the columns for F2P
-    servant_survey_df = servant_survey_df.drop([111, 1029, 2395])
+    # cols_to_drop = [111, 1029, 2395]
+    # servant_survey_df = servant_survey_df.drop(cols_to_drop)
 
     splitted_df = {}
 
@@ -98,6 +99,8 @@ def main():
     servant_df = pd.DataFrame(servant_class_table, columns=["Servant", "Class"])
 
     # This data set doesn't contain limitted data though so that has to be inputted manually at the moment
+    manual_df = pd.read_csv("data/servant - manual.csv")
+    servant_df = pd.merge(servant_df, manual_df, how="left", on=["Servant", "Class"])
     servant_df.to_csv("data/servant.csv", index=False)
 
 
