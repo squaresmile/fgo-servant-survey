@@ -4,6 +4,7 @@ import dash
 import dash_table
 import dash_core_components as dcc
 import dash_html_components as html
+import dash_table.FormatTemplate as FormatTemplate
 from dash.dependencies import Output, Input
 import pandas as pd
 import plotly.graph_objs as go
@@ -65,7 +66,16 @@ app.layout = html.Div(
         html.Div(id="percent-chart"),
         dash_table.DataTable(
             id="table",
-            columns=[{"name": i, "id": i} for i in ["Servant", "Count", "% have"]],
+            columns=[
+                {"name": "Servant", "id": "Servant"},
+                {"name": "Count", "id": "Count"},
+                {
+                    "name": "% have",
+                    "id": "% have",
+                    "type": "numeric",
+                    "format": FormatTemplate.percentage(2),
+                },
+            ],
             style_cell_conditional=[
                 {"if": {"column_id": "Servant"}, "textAlign": "left"}
             ],
@@ -118,7 +128,7 @@ def update_graph(chosen_class, chosen_availability, chosen_type):
     }
     summary = summary.to_frame().reset_index()
     summary.columns = ["Servant", "Count"]
-    summary["% have"] = (summary["Count"] / player_count * 100).round(2)
+    summary["% have"] = summary["Count"] / player_count
     summary = summary.sort_values("% have", ascending=False)
     table_data = summary.to_dict("records")
     return figure, table_data
@@ -156,7 +166,11 @@ def update_bar_charts(rows, derived_virtual_selected_rows):
             ],
             "layout": {
                 "xaxis": {"automargin": True},
-                "yaxis": {"automargin": True, "title": {"text": "% have"}},
+                "yaxis": {
+                    "automargin": True,
+                    "title": {"text": "% have"},
+                    "tickformat": "%",
+                },
                 "height": 500,
                 "margin": {"t": 10, "l": 10, "r": 10, "b": 200},
             },
