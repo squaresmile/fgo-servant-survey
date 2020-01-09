@@ -41,28 +41,33 @@ server = app.server
 app.layout = html.Div(
     children=[
         html.H1(children="FGO NA 2020-01 Survey"),
-        html.Div(children="Servant Class"),
+        dcc.Markdown(
+            "[Survey post](https://redd.it/elvl96) \
+            [Result post]() \
+            [Raw data](https://docs.google.com/spreadsheets/d/1Un4g-h8wNP3e5jBN5M29WhvCBo94184NSgpITRHcEFI/edit?usp=sharing)"
+        ),
+        html.Div(children="Servant Class:", style={"font-weight": "bold"}),
         dcc.Checklist(
             id="class_checklist",
             options=dash_classes,
             labelStyle={"display": "inline-block"},
             value=servant_classes,
         ),
-        html.Div(children="Servant Availability"),
+        html.Div(children="Servant Availability:", style={"font-weight": "bold"}),
         dcc.Checklist(
             id="availability_checklist",
             options=dash_availability,
             labelStyle={"display": "inline-block"},
             value=servant_availability,
         ),
-        html.Div(children="Spending Amount"),
+        html.Div(children="Spending Amount:", style={"font-weight": "bold"}),
         dcc.Checklist(
             id="type_checklist",
             options=dash_types,
             labelStyle={"display": "inline-block"},
             value=player_types,
         ),
-        dcc.Graph(id="fgo_servant_data"),
+        # dcc.Graph(id="fgo_servant_data"),
         html.Div(id="percent-chart"),
         dash_table.DataTable(
             id="table",
@@ -99,7 +104,7 @@ app.layout = html.Div(
 
 
 @app.callback(
-    [Output("fgo_servant_data", "figure"), Output("table", "data"),],
+    Output("table", "data"),
     [
         Input("class_checklist", "value"),
         Input("availability_checklist", "value"),
@@ -119,19 +124,19 @@ def update_graph(chosen_class, chosen_availability, chosen_type):
         .sum()
         .replace(False, 0)
     )
-    figure = {
-        "data": [
-            go.Pie(
-                labels=list(summary.index), values=list(summary), direction="clockwise"
-            )
-        ]
-    }
+    # figure = {
+    #     "data": [
+    #         go.Pie(
+    #             labels=list(summary.index), values=list(summary), direction="clockwise"
+    #         )
+    #     ]
+    # }
     summary = summary.to_frame().reset_index()
     summary.columns = ["Servant", "Count"]
     summary["% have"] = summary["Count"] / player_count
     summary = summary.sort_values("% have", ascending=False)
     table_data = summary.to_dict("records")
-    return figure, table_data
+    return table_data  # , figure
 
 
 @app.callback(
@@ -181,9 +186,9 @@ def update_bar_charts(rows, derived_virtual_selected_rows):
                 "filename": "Servant survey",
                 "height": 500,
                 "width": 1000,
-                "scale": 5
+                "scale": 5,
             }
-        }
+        },
     )
     return [percent_figure]
 
