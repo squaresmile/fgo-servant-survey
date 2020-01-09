@@ -119,6 +119,7 @@ def update_graph(chosen_class, chosen_availability, chosen_type):
     summary = summary.to_frame().reset_index()
     summary.columns = ["Servant", "Count"]
     summary["% have"] = (summary["Count"] / player_count * 100).round(2)
+    summary = summary.sort_values("% have", ascending=False)
     table_data = summary.to_dict("records")
     return figure, table_data
 
