@@ -146,7 +146,7 @@ def update_bar_charts(rows, derived_virtual_selected_rows):
         derived_virtual_selected_rows = []
     dff = (
         pd.DataFrame.from_dict({"Servant": ["Artoria"], "Count": [1], "% have": [1]})
-        if rows is None
+        if rows is None or not rows
         else pd.DataFrame(rows)
     )
     colors = [
@@ -175,6 +175,15 @@ def update_bar_charts(rows, derived_virtual_selected_rows):
                 "margin": {"t": 10, "l": 10, "r": 10, "b": 200},
             },
         },
+        config={
+            "toImageButtonOptions": {
+                "format": "png",
+                "filename": "Servant survey",
+                "height": 500,
+                "width": 1000,
+                "scale": 5
+            }
+        }
     )
     return [percent_figure]
 
