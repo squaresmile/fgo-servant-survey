@@ -35,21 +35,21 @@ app.layout = html.Div(
             id="class_checklist",
             options=dash_classes,
             labelStyle={"display": "inline-block"},
-            values=servant_classes,
+            value=servant_classes,
         ),
         html.Div(children="Servant Availability"),
         dcc.Checklist(
             id="availability_checklist",
             options=dash_availability,
             labelStyle={"display": "inline-block"},
-            values=servant_availability,
+            value=servant_availability,
         ),
         html.Div(children="Spending Amount"),
         dcc.Checklist(
             id="type_checklist",
             options=dash_types,
             labelStyle={"display": "inline-block"},
-            values=player_types,
+            value=player_types,
         ),
         dcc.Graph(id="fgo_servant_data"),
     ],
@@ -60,9 +60,9 @@ app.layout = html.Div(
 @app.callback(
     dash.dependencies.Output("fgo_servant_data", "figure"),
     [
-        dash.dependencies.Input("class_checklist", "values"),
-        dash.dependencies.Input("availability_checklist", "values"),
-        dash.dependencies.Input("type_checklist", "values"),
+        dash.dependencies.Input("class_checklist", "value"),
+        dash.dependencies.Input("availability_checklist", "value"),
+        dash.dependencies.Input("type_checklist", "value"),
     ],
 )
 def update_graph(chosen_class, chosen_availability, chosen_type):
