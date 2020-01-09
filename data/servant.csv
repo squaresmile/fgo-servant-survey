@@ -1,43 +1,59 @@
-Servant,Class
-Altera,Saber
-Artoria Pendragon,Saber
-Mordred,Saber
-Nero Claudius [Bride],Saber
-Okita Souji,Saber
-Ryougi Shiki,Saber
-Arjuna,Archer
-Artoria Pendragon [Archer],Archer
-Gilgamesh,Archer
-Ishtar,Archer
-Nikola Tesla,Archer
-Orion,Archer
-Artoria Pendragon [Lancer],Lancer
-Brynhildr,Lancer
-Enkidu,Lancer
-Karna,Lancer
-Scathach,Lancer
-Tamamo no Mae [Lancer],Lancer
-Francis Drake,Rider
-Iskandar,Rider
-Ozymandias,Rider
-Queen Medb,Rider
-Quetzalcoatl,Rider
-Illyasviel von Einzbern,Caster
-Leonardo Da Vinci,Caster
-Merlin,Caster
-Tamamo-no-mae,Caster
-Xuanzang,Caster
-Zhuge Liang [El-Melloi II],Caster
-Cleopatra,Assassin
-Jack the Ripper,Assassin
-MHX,Assassin
-Shuten Douji,Assassin
-Cu Chulainn [Alter],Berserker
-Florence Nightingale,Berserker
-Minamoto no Raikō,Berserker
-Sakata Kintoki,Berserker
-Vlad III,Berserker
-Amakusa Shirou,Ruler
-Jeanne D'arc,Ruler
-Edmond Dantes,Avenger
-Jeanne D'arc [Alter],Avenger
+Servant,Class,Availability
+Altera,Saber,Non-limited
+Arthur Pendragon [Prototype],Saber,
+Artoria Pendragon,Saber,Non-limited
+Miyamoto Musashi,Saber,
+Mordred,Saber,Non-limited
+Nero Claudius [Bride],Saber,Limited
+Okita Souji,Saber,Limited
+Ryougi Shiki,Saber,Limited
+Arjuna,Archer,Non-limited
+Artoria Pendragon [Archer],Archer,Limited
+Gilgamesh,Archer,Limited
+Ishtar,Archer,Limited
+James Moriarty,Archer,
+Nikola Tesla,Archer,Non-limited
+Orion,Archer,Non-limited
+Artoria Pendragon [Lancer],Lancer,Story Locked
+Brynhildr,Lancer,Limited
+Enkidu,Lancer,Non-limited
+Ereshkigal,Lancer,
+Karna,Lancer,Non-limited
+Scathach,Lancer,Limited
+Tamamo no Mae [Lancer],Lancer,Limited
+Artoria Pendragon [Rider Alter],Rider,
+Francis Drake,Rider,Non-limited
+Iskandar,Rider,Limited
+Ozymandias,Rider,Non-limited
+Queen Medb,Rider,Non-limited
+Quetzalcoatl,Rider,Story Locked
+Illyasviel von Einzbern,Caster,Limited
+Leonardo Da Vinci,Caster,Limited
+Merlin,Caster,Limited
+Nero Claudius [Caster],Caster,
+Scheherazade,Caster,
+Tamamo-no-mae,Caster,Non-limited
+Xuanzang,Caster,Non-limited
+Zhuge Liang [El-Melloi II],Caster,Non-limited
+Cleopatra,Assassin,Limited
+Jack the Ripper,Assassin,Non-limited
+King Hassan,Assassin,
+MHX,Assassin,Limited
+Osakabehime,Assassin,
+Shuten Douji,Assassin,Limited
+Cu Chulainn [Alter],Berserker,Story Locked
+Florence Nightingale,Berserker,Non-limited
+Hijikata Toshizō,Berserker,
+Minamoto no Raikō,Berserker,Limited
+Mysterious Heroine X (Alter),Berserker,
+Sakata Kintoki,Berserker,Limited
+Vlad III,Berserker,Non-limited
+Amakusa Shirou,Ruler,Limited
+Jeanne D'arc,Ruler,Non-limited
+Sherlock Holmes,Ruler,
+Edmond Dantes,Avenger,Limited
+Jeanne D'arc [Alter],Avenger,Limited
+Meltlilith,Alter Ego,
+Sesshōin Kiara,Alter Ego,
+Abigail Williams,Foreigner,
+Katsushika Hokusai,Foreigner,
