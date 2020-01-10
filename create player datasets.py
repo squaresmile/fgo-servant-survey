@@ -8,9 +8,9 @@ def main():
         mangle_dupe_cols=True,
     )
     print(servant_survey_df.shape)
-    # These records are Paid Gacha or 100-300 but record values in the columns for F2P
-    # cols_to_drop = [111, 1029, 2395]
-    # servant_survey_df = servant_survey_df.drop(cols_to_drop)
+    # These records are Paid Gacha or 100-300 but recorded values in the columns for F2P
+    rows_to_drop = [2441]
+    servant_survey_df = servant_survey_df.drop(rows_to_drop)
     print(servant_survey_df["How much money have you used in-game?"].value_counts())
 
     splitted_df = {}
@@ -64,7 +64,9 @@ def main():
     # Eg: F2P Sabers in 'SSR Sabers'; Paid Gacha Sabers in 'SSR Sabers.1' and so on
     # Therefore, if NA columns are removed, only columns of the relevant player type remain
     for player_type, player_df in splitted_df.items():
-        splitted_df[player_type] = player_df.dropna(axis=1, how="all").iloc[:, :len(PROPER_COLUMNS_NAME)]
+        splitted_df[player_type] = player_df.dropna(axis=1, how="all").iloc[
+            :, : len(PROPER_COLUMNS_NAME)
+        ]
         splitted_df[player_type].columns = PROPER_COLUMNS_NAME
 
     servant_class_list = {}
@@ -72,7 +74,9 @@ def main():
     # Use whale dataset to make sure we don't miss any servant
     for servant_class in PROPER_COLUMNS_NAME[2:13]:
         servant_class_list[servant_class] = list(
-            splitted_df["High Spender (201-300~ USD per month)"][servant_class].dropna().unique()
+            splitted_df["High Spender (201-300~ USD per month)"][servant_class]
+            .dropna()
+            .unique()
         )
 
     # Get servant list for each class
