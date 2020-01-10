@@ -44,30 +44,72 @@ app.layout = html.Div(
         dcc.Markdown(
             "[Survey post](https://redd.it/elvl96) \
             [Result post]() \
-            [Raw data](https://docs.google.com/spreadsheets/d/1Un4g-h8wNP3e5jBN5M29WhvCBo94184NSgpITRHcEFI/edit?usp=sharing)"
+            [Raw data](https://docs.google.com/spreadsheets/d/1Un4g-h8wNP3e5jBN5M29WhvCBo94184NSgpITRHcEFI/edit?usp=sharing) \
+            [Processed data](https://raw.githubusercontent.com/squaresmile/fgo-servant-survey/master/data/merged_df.csv)"
         ),
-        html.Div(children="Servant Class:", style={"font-weight": "bold"}),
-        dcc.Checklist(
-            id="class_checklist",
-            options=dash_classes,
-            labelStyle={"display": "inline-block"},
-            value=servant_classes,
+        html.Div(
+            [
+                html.P(
+                    "Servant Class:",
+                    style={"font-weight": "bold", "display": "inline-block"},
+                ),
+                dcc.Checklist(
+                    id="class_checklist",
+                    options=dash_classes,
+                    labelStyle={"display": "inline-block"},
+                    style={"display": "inline-block"},
+                    value=servant_classes,
+                ),
+            ]
         ),
-        html.Div(children="Servant Availability:", style={"font-weight": "bold"}),
-        dcc.Checklist(
-            id="availability_checklist",
-            options=dash_availability,
-            labelStyle={"display": "inline-block"},
-            value=servant_availability,
+        html.Div(
+            [
+                html.P(
+                    children="Servant Availability:",
+                    style={"font-weight": "bold", "display": "inline-block"},
+                ),
+                dcc.Checklist(
+                    id="availability_checklist",
+                    options=dash_availability,
+                    labelStyle={"display": "inline-block"},
+                    style={"display": "inline-block"},
+                    value=servant_availability,
+                ),
+            ]
         ),
-        html.Div(children="Spending Amount:", style={"font-weight": "bold"}),
-        dcc.Checklist(
-            id="type_checklist",
-            options=dash_types,
-            labelStyle={"display": "inline-block"},
-            value=player_types,
+        html.Div(
+            [
+                html.P(
+                    children="Player Type:",
+                    style={"font-weight": "bold", "display": "inline-block"},
+                ),
+                dcc.Checklist(
+                    id="type_checklist",
+                    options=dash_types,
+                    labelStyle={"display": "inline-block"},
+                    style={"display": "inline-block"},
+                    value=player_types,
+                ),
+            ]
         ),
         # dcc.Graph(id="fgo_servant_data"),
+        html.Div(
+            [
+                html.P(
+                    "Y-axis:", style={"font-weight": "bold", "display": "inline-block"}
+                ),
+                dcc.RadioItems(
+                    id="locked_y_axis",
+                    options=[
+                        {"label": "0-100%", "value": "locked_y_axis"},
+                        {"label": "Relative", "value": "relative_y_axis"},
+                    ],
+                    labelStyle={"display": "inline-block"},
+                    style={"display": "inline-block"},
+                    value="locked_y_axis",
+                ),
+            ]
+        ),
         html.Div(id="percent-chart"),
         dash_table.DataTable(
             id="table",
@@ -144,9 +186,10 @@ def update_graph(chosen_class, chosen_availability, chosen_type):
     [
         Input("table", "derived_virtual_data"),
         Input("table", "derived_virtual_selected_rows"),
+        Input("locked_y_axis", "value"),
     ],
 )
-def update_bar_charts(rows, derived_virtual_selected_rows):
+def update_bar_charts(rows, derived_virtual_selected_rows, y_axis):
     if derived_virtual_selected_rows is None:
         derived_virtual_selected_rows = []
     dff = (
@@ -158,6 +201,14 @@ def update_bar_charts(rows, derived_virtual_selected_rows):
         "#7FDBFF" if i in derived_virtual_selected_rows else "#0074D9"
         for i in range(len(dff))
     ]
+    y_axis_layout = {
+        "automargin": True,
+        "title": {"text": "% have"},
+        "tickformat": "%",
+        "range": [0, 1],
+    }
+    if y_axis == "relative_y_axis":
+        y_axis_layout.pop("range")
     percent_figure = dcc.Graph(
         id="percent-figure",
         figure={
@@ -171,11 +222,7 @@ def update_bar_charts(rows, derived_virtual_selected_rows):
             ],
             "layout": {
                 "xaxis": {"automargin": True},
-                "yaxis": {
-                    "automargin": True,
-                    "title": {"text": "% have"},
-                    "tickformat": "%",
-                },
+                "yaxis": y_axis_layout,
                 "height": 500,
                 "margin": {"t": 10, "l": 10, "r": 10, "b": 200},
             },
