@@ -35,12 +35,12 @@ dash_availability = [
 ]
 dash_types = [{"label": type, "value": type} for type in player_types]
 
-app = dash.Dash(__name__)
+app = dash.Dash(__name__, show_undo_redo=True, url_base_pathname="/servant-survey/")
 server = app.server
 
 app.layout = html.Div(
     children=[
-        html.H1(children="FGO NA 2020-01 Survey"),
+        html.H1(children="FGO NA 2020-01 Servant Survey"),
         dcc.Markdown(
             "[Survey post](https://redd.it/elvl96) \
             [Result post]() \
