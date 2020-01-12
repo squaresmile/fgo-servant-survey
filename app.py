@@ -43,7 +43,7 @@ app.layout = html.Div(
         html.H1(children="FGO NA 2020-01 Servant Survey"),
         dcc.Markdown(
             "[Survey post](https://redd.it/elvl96) \
-            [Result post]() \
+            [Result post](https://redd.it/enqm1n) \
             [Raw data](https://docs.google.com/spreadsheets/d/1Un4g-h8wNP3e5jBN5M29WhvCBo94184NSgpITRHcEFI/edit?usp=sharing) \
             [Processed data](https://raw.githubusercontent.com/squaresmile/fgo-servant-survey/master/data/merged_df.csv)"
         ),
