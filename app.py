@@ -4,6 +4,7 @@ import dash
 import dash_table
 import dash_core_components as dcc
 import dash_html_components as html
+from dash_table.Format import Format
 import dash_table.FormatTemplate as FormatTemplate
 from dash.dependencies import Output, Input
 import pandas as pd
@@ -115,7 +116,12 @@ app.layout = html.Div(
             id="table",
             columns=[
                 {"name": "Servant", "id": "Servant"},
-                {"name": "Count", "id": "Count"},
+                {
+                    "name": "Count",
+                    "id": "Count",
+                    "type": "numeric",
+                    "format": Format(group=","),
+                },
                 {
                     "name": "% have",
                     "id": "% have",
@@ -123,8 +129,13 @@ app.layout = html.Div(
                     "format": FormatTemplate.percentage(2),
                 },
             ],
+            style_cell={"fontSize": "16px"},
             style_cell_conditional=[
-                {"if": {"column_id": "Servant"}, "textAlign": "left"}
+                {
+                    "if": {"column_id": "Servant"},
+                    "textAlign": "left",
+                    "fontFamily": "sans-serif",
+                }
             ],
             style_as_list_view=True,
             style_data_conditional=[
@@ -133,6 +144,7 @@ app.layout = html.Div(
             style_header={
                 "backgroundColor": "rgb(230, 230, 230)",
                 "fontWeight": "bold",
+                "fontFamily": "sans-serif",
             },
             sort_action="native",
             sort_mode="multi",
@@ -225,6 +237,7 @@ def update_bar_charts(rows, derived_virtual_selected_rows, y_axis):
                 "yaxis": y_axis_layout,
                 "height": 500,
                 "margin": {"t": 10, "l": 10, "r": 10, "b": 200},
+                "font": {"family": "sans-serif"},
             },
         },
         config={
