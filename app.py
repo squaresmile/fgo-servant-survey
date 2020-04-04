@@ -36,7 +36,12 @@ dash_availability = [
 ]
 dash_types = [{"label": type, "value": type} for type in player_types]
 
-app = dash.Dash(__name__, show_undo_redo=True, url_base_pathname="/servant-survey/")
+app = dash.Dash(
+    __name__,
+    show_undo_redo=True,
+    url_base_pathname="/servant-survey/",
+    meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}],
+)
 server = app.server
 
 app.layout = html.Div(
