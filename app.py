@@ -46,7 +46,7 @@ server = app.server
 
 app.layout = html.Div(
     children=[
-        html.H1(children="FGO NA 2020-01 Servant Survey"),
+        html.H2(children="FGO NA 2020-01 Servant Survey"),
         dcc.Markdown(
             "[Survey post](https://redd.it/elvl96) \
             [Result post](https://redd.it/enqm1n) \
