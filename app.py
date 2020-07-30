@@ -252,7 +252,8 @@ def update_bar_charts(rows, derived_virtual_selected_rows, y_axis):
                 "height": 500,
                 "width": 1000,
                 "scale": 5,
-            }
+            },
+            "scrollZoom": True,
         },
     )
     return [percent_figure]
