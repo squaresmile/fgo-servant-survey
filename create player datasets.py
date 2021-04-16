@@ -4,13 +4,13 @@ import pandas as pd
 
 def main():
     servant_survey_df = pd.read_csv(
-        "data/Google Sheets csv/SSRs actuales Enero 2020 (respuestas) - Respuestas de formulario 1.csv",
+        "data/Google Sheets csv/SSRs actuales Julio 2020 NA (respuestas) - Respuestas de formulario 1.csv",
         mangle_dupe_cols=True,
     )
     print(servant_survey_df.shape)
     # These records are Paid Gacha or 100-300 but recorded values in the columns for F2P
-    rows_to_drop = [2441]
-    servant_survey_df = servant_survey_df.drop(rows_to_drop)
+    # rows_to_drop = [2441]
+    # servant_survey_df = servant_survey_df.drop(rows_to_drop)
     print(servant_survey_df["How much money have you used in-game?"].value_counts())
 
     splitted_df = {}
@@ -52,10 +52,13 @@ def main():
         "State of NA?",
         "Auto-Play or NP skip?",
         "DW care?",
-        "More subtitles?",
+        "How the game runs",
         "Faster Lostbelts?",
         "Favorite Servant",
         "Most hated servant",
+        "Favorite card type",
+        "Play with meta or waifu",
+        "Any other gacha?",
         "Gender",
         "Reroll account?",
     ]

@@ -1,14 +1,11 @@
-import os
-import re
 import dash
-import dash_table
 import dash_core_components as dcc
 import dash_html_components as html
-from dash_table.Format import Format
+import dash_table
 import dash_table.FormatTemplate as FormatTemplate
-from dash.dependencies import Output, Input
 import pandas as pd
-import plotly.graph_objs as go
+from dash.dependencies import Input, Output
+from dash_table.Format import Format
 
 
 player_df = pd.read_csv("data/merged_df.csv", index_col=0)
@@ -46,12 +43,12 @@ server = app.server
 
 app.layout = html.Div(
     children=[
-        html.H2(children="FGO NA 2020-01 Servant Survey"),
+        html.H2(children="FGO NA 2020-07 Servant Survey"),
         dcc.Markdown(
-            "[Survey post](https://redd.it/elvl96) \
-            [Result post](https://redd.it/enqm1n) \
-            [Raw data](https://docs.google.com/spreadsheets/d/1Un4g-h8wNP3e5jBN5M29WhvCBo94184NSgpITRHcEFI/edit?usp=sharing) \
-            [Processed data](https://raw.githubusercontent.com/squaresmile/fgo-servant-survey/master/data/merged_df.csv)"
+            "[Survey post by /u/panchovix](https://redd.it/hph5qi) | "
+            "[Raw data](https://docs.google.com/spreadsheets/d/1XyHaKLaWPt_ndeACJopUl39_wk4yZAUz3NkdUK9Guw0/edit?usp=sharing) | "
+            "[Processed data](https://raw.githubusercontent.com/squaresmile/fgo-servant-survey/master/data/merged_df.csv) | "
+            "[Atlas Academy Discord](https://discord.gg/TKJmuCR)"
         ),
         html.Div(
             [
@@ -199,7 +196,7 @@ def update_graph(chosen_class, chosen_availability, chosen_type):
 
 
 @app.callback(
-    [Output("percent-chart", "children"),],
+    [Output("percent-chart", "children")],
     [
         Input("table", "derived_virtual_data"),
         Input("table", "derived_virtual_selected_rows"),
@@ -238,7 +235,7 @@ def update_bar_charts(rows, derived_virtual_selected_rows, y_axis):
                 }
             ],
             "layout": {
-                "xaxis": {"automargin": True},
+                "xaxis": {"automargin": True, "tickfont": {"size": 11}},
                 "yaxis": y_axis_layout,
                 "height": 500,
                 "margin": {"t": 10, "l": 10, "r": 10, "b": 200},
