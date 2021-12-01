@@ -1,11 +1,9 @@
 import dash
-import dash_core_components as dcc
-import dash_html_components as html
-import dash_table
-import dash_table.FormatTemplate as FormatTemplate
+from dash import dcc, html, dash_table
+import dash.dash_table.FormatTemplate as FormatTemplate
 import pandas as pd
 from dash.dependencies import Input, Output
-from dash_table.Format import Format
+from dash.dash_table.Format import Format
 
 
 player_df = pd.read_csv("data/merged_df.csv", index_col=0)
